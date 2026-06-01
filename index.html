@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>AudioAura</title>
+</head>
+<body>a
+
+  <h2>AudioAura</h2>
+  <button id="startBtn">Start Listening</button>
+  <p id="status">Press the button to begin</p>
+
+  <script>
+    const btn = document.getElementById('startBtn');
+    const status = document.getElementById('status');
+
+    btn.addEventListener('click', async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new AudioContext();
+        const source = audioContext.createMediaStreamSource(stream);
+        source.connect(audioContext.destination);
+        status.textContent = 'Listening... speak and hear yourself in your earbuds';
+        btn.textContent = 'Running';
+        btn.disabled = true;
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioAura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎧 AudioAura</h1>
+    <p class="subtitle">AI Noise Removal for any Earbuds</p>
+
+    <div class="status-box">
+      <p id="status">Ready to start</p>
+    </div>
+
+    <button id="startBtn">Start Listening</button>
+    <button id="stopBtn" disabled>Stop</button>
+
+    <div class="noise-control">
+      <label>Noise Suppression Level</label>
+      <input type="range" id="noiseLevel" min="0" max="1" step="0.1" value="0.5">
+      <span id="noiseLevelDisplay">50%</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
